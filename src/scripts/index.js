@@ -1,5 +1,7 @@
 /* Desenvolva sua lógica aqui ... */
 
+
+
 function renderGenreItems(genres) {
   const ulGenreList = document.querySelector(".genres__list");
 
