@@ -1,8 +1,6 @@
-/* Desenvolva sua lógica aqui ... */
 
 
-
-function renderGenreItems(genres) {
+const renderGenreItems = (genres) => {
   const ulGenreList = document.querySelector(".genres__list");
 
   for (let i = 0; i < genres.length; i++) {
@@ -18,7 +16,7 @@ function renderGenreItems(genres) {
   }
 }
 
-function createAlbumCard(albumData) {
+const createAlbumCard = (albumData) => {
   // CRIANDO OS ELEMENTOS
   const card = document.createElement("li");
 
@@ -77,7 +75,7 @@ function createAlbumCard(albumData) {
   return card;
 }
 
-function renderAlbumCards(albums) {
+const renderAlbumCards = (albums) => {
   const ulAlbumList = document.querySelector(".albums__list");
   ulAlbumList.innerHTML = "";
 
@@ -88,7 +86,7 @@ function renderAlbumCards(albums) {
   }
 }
 
-function handleFilter(albums, genreFilter = "Todos", priceFilter) {
+const handleFilter = (albums, genreFilter = "Todos", priceFilter) => {
   const filteredAlbums = [];
 
   for (let i = 0; i < albums.length; i++) {
@@ -104,14 +102,14 @@ function handleFilter(albums, genreFilter = "Todos", priceFilter) {
   return filteredAlbums;
 }
 
-function removeActiveClass(genres) {
+const removeActiveClass = (genres) => {
   for (let i = 0; i < genres.length; i++) {
     const genre = genres[i];
     genre.classList.remove("active");
   }
 }
 
-function handleFilterEvents(albums) {
+const handleFilterEvents = (albums) => {
   const genres = document.querySelectorAll(".genre__item");
   const inputPriceRange = document.querySelector(".price__input-range");
   const spanPriceValue = document.querySelector(".price-range__value--dynamic");
@@ -121,7 +119,7 @@ function handleFilterEvents(albums) {
 
   for (let i = 0; i < genres.length; i++) {
     const currentGenre = genres[i];
-    currentGenre.addEventListener("click", function (event) {
+    currentGenre.addEventListener("click", (event) => {
       removeActiveClass(genres);
       currentGenre.classList.add("active");
       genreCategory = event.target.innerText;
@@ -131,7 +129,7 @@ function handleFilterEvents(albums) {
     });
   }
 
-  inputPriceRange.addEventListener("input", function (event) {
+  inputPriceRange.addEventListener("input", (event) => {
     priceValue = event.target.value;
     spanPriceValue.innerText = "R$ " + priceValue;
     const albumsToRender = handleFilter(albums, genreCategory, priceValue);

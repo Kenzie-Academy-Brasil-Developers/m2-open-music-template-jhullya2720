@@ -1,6 +1,6 @@
 
 
-function darkAndLight() {
+const darkAndLight = () => {
     const modeToggleBtn = document.querySelector(".header__btn");
     const modeDarkBody = document.querySelector("html");
 

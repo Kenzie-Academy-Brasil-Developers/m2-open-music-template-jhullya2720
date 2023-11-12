@@ -1,3 +1,4 @@
+
 const albumList = [
   {
     id: 1,
@@ -136,7 +137,7 @@ const albumList = [
   },
 ];
 
-const genresList = [
+ const genresList = [
   "Todos",
   "Pop",
   "MPB",
@@ -146,4 +147,4 @@ const genresList = [
   "Jazz",
   "Rock",
   "Reggae",
-];
+]
