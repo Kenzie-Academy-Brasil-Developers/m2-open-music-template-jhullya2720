@@ -1,5 +1,5 @@
-
 @import url(./globalStyles.css);
+
 /*
   =============================
   HEADER
@@ -128,13 +128,12 @@
   width: 500px;
   max-width: 100%;
   background-color: var(--color-grey-7);
-
+  transition: width 0.7s ease-in-out;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   border-radius: 0.25rem;
 }
-
 .album__item:hover {
   background-color: var(--color-grey-6);
 }
@@ -148,8 +147,15 @@
   height: 100%;
   border-radius: 0.25rem 0.25rem 0rem 0rem;
   background-position: center;
-
   object-fit: cover;
+  transition: transform 0.7s ease-in-out;
+}
+.album__cover:hover {
+  transform: scale(1.1);
+}
+
+.album__cover:hover{
+  transition: width 1.1;
 }
 
 .album__details {
@@ -202,4 +208,41 @@
 .album__buy--button:hover {
   background-color: var(--color-brand-1);
   border-color: var(--color-brand-1);
+}
+
+@keyframes drop-down-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+};
+
+.drop {
+  animation: drop-down-animation 0.7s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide{
+  animation: slideIn ease-in-out 0.7s;
 }

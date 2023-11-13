@@ -1,4 +1,7 @@
-
+import { albumList } from  "./productsData.js" ;
+import { genresList } from "./productsData.js";
+import { darkAndLight } from "./theme.js";
+import { handleCustomInputRange } from "./input.js";
 
 const renderGenreItems = (genres) => {
   const ulGenreList = document.querySelector(".genres__list");
@@ -33,6 +36,7 @@ const createAlbumCard = (albumData) => {
 
   // CARD
   card.classList.add("album__item");
+  card.classList.add("slide");
 
   // COVER IMG
   albumCoverContainer.classList.add("album__cover-container");
@@ -141,3 +145,5 @@ const handleFilterEvents = (albums) => {
 renderGenreItems(genresList);
 handleFilterEvents(albumList);
 renderAlbumCards(albumList);
+darkAndLight();
+handleCustomInputRange();

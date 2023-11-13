@@ -1,6 +1,6 @@
 
 
-const darkAndLight = () => {
+export const darkAndLight = () => {
     const modeToggleBtn = document.querySelector(".header__btn");
     const modeDarkBody = document.querySelector("html");
 
@@ -16,6 +16,3 @@ const darkAndLight = () => {
         localStorage.setItem("dark-mode", modeDarkBody.classList.contains("dark-mode"));
     });
 }
-
-darkAndLight();
-

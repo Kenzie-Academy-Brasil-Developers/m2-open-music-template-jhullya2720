@@ -2,7 +2,7 @@
   Não altere a função abaixo!
 */
 
-const handleCustomInputRange = () => {
+export const handleCustomInputRange = () => {
   const inputRange = document.querySelector(".price__input-range");
 
   inputRange.addEventListener("input", (event) => {
