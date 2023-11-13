@@ -6,9 +6,7 @@ import { handleCustomInputRange } from "./input.js";
 const renderGenreItems = (genres) => {
   const ulGenreList = document.querySelector(".genres__list");
 
-  for (let i = 0; i < genres.length; i++) {
-    const currentGenre = genres[i];
-
+  genres.forEach(currentGenre => {
     const liGenre = document.createElement("li");
     liGenre.innerText = currentGenre;
     liGenre.classList.add("genre__item", "text3");
@@ -16,9 +14,8 @@ const renderGenreItems = (genres) => {
       liGenre.classList.add("active");
     }
     ulGenreList.appendChild(liGenre);
-  }
+  });
 }
-
 const createAlbumCard = (albumData) => {
   // CRIANDO OS ELEMENTOS
   const card = document.createElement("li");
@@ -83,35 +80,27 @@ const renderAlbumCards = (albums) => {
   const ulAlbumList = document.querySelector(".albums__list");
   ulAlbumList.innerHTML = "";
 
-  for (let i = 0; i < albums.length; i++) {
-    const currentAlbum = albums[i];
+  albums.forEach(currentAlbum => {
     const albumCard = createAlbumCard(currentAlbum);
     ulAlbumList.appendChild(albumCard);
-  }
+  });
 }
+
 
 const handleFilter = (albums, genreFilter = "Todos", priceFilter) => {
-  const filteredAlbums = [];
-
-  for (let i = 0; i < albums.length; i++) {
-    const currentAlbum = albums[i];
-    if (
-      (currentAlbum.genre === genreFilter || genreFilter === "Todos") &&
-      currentAlbum.price <= priceFilter
-    ) {
-      filteredAlbums.push(currentAlbum);
-    }
-  }
-
-  return filteredAlbums;
+  return albums.filter(currentAlbum => 
+    (currentAlbum.genre === genreFilter || genreFilter === "Todos") &&
+    currentAlbum.price <= priceFilter
+  );
 }
+
 
 const removeActiveClass = (genres) => {
-  for (let i = 0; i < genres.length; i++) {
-    const genre = genres[i];
+  genres.forEach(genre => {
     genre.classList.remove("active");
-  }
+  });
 }
+
 
 const handleFilterEvents = (albums) => {
   const genres = document.querySelectorAll(".genre__item");
@@ -121,8 +110,7 @@ const handleFilterEvents = (albums) => {
   let genreCategory = "Todos";
   let priceValue = inputPriceRange.valueAsNumber;
 
-  for (let i = 0; i < genres.length; i++) {
-    const currentGenre = genres[i];
+  genres.forEach(currentGenre => {
     currentGenre.addEventListener("click", (event) => {
       removeActiveClass(genres);
       currentGenre.classList.add("active");
@@ -131,7 +119,7 @@ const handleFilterEvents = (albums) => {
       const albumsToRender = handleFilter(albums, genreCategory, priceValue);
       renderAlbumCards(albumsToRender);
     });
-  }
+  });
 
   inputPriceRange.addEventListener("input", (event) => {
     priceValue = event.target.value;
